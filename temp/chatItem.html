@@ -1,0 +1,14 @@
+<!--<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4 class="panel-title">{{ item.author }}</h4>
+  </div>
+  <div class="panel-body">
+    {{ item.text }}
+  </div>
+  <div class="pull-right"> </div>
+</div>
+-->
+<blockquote>
+  <p>{{ item.text }}</p>
+  <small>{{ item.author }} at <cite title="Source Title">{{ item.date | date: 'H:mm:ss' }}</cite></small>
+</blockquote>

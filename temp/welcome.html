@@ -1,0 +1,14 @@
+<div ng-controller="WelcomeCtrl" class="container">
+	<div class="jumbotron">
+		<h1><i class="fa fa-envelope"></i> Welcome!</h1>
+	</div>
+	<div class="col-md-4 col-md-offset-4">
+		<div class="input-group">
+		<span class="input-group-addon" id="basic-addon1"><i class="fa fa-user"></i></span>
+		  <input ng-model="username" type="text" class="form-control" placeholder="Select username" ng-keypress="enter($event)" autofocus>
+		  <span class="input-group-btn">
+		    <button class="btn btn-default" type="button" ng-click="go('/chat')">Go!</button>
+		  </span>
+		</div>
+	</div>
+</div>

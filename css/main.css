@@ -1,0 +1,31 @@
+section {
+	overflow-y: auto;
+	height: 400px;
+}
+.panel-body{
+	word-wrap: break-word;
+	padding: 5px 15px 5px 15px;
+}
+.panel {
+  max-width: 40%;
+  display: table;
+  min-width: 20%;
+  font-size: small;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 15px;
+}
+.input-group{
+	top:7px;
+}
+
+blockquote {
+  padding: 5px 23px;
+  margin: 0 0 10px;
+  font-size: small;
+  border-left: 5px solid #eeeeee;
+}
+
+.page-header{
+	margin: 26px 0 23px;
+}
