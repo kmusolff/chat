@@ -1,0 +1,15 @@
+{
+  "name": "simple-chat",
+  "version": "0.0.1",
+  "description": "Simple chat developed using MEAN stack",
+  "dependencies": {
+    "express": "^4.13.3",
+    "socket.io": "^1.3.6"
+  },
+  "license": "MIT (see LICENSE)",
+  "author": {
+    "name": "Karol Musolff",
+    "email": "karolmusolff@gmail.com",
+    "url": "https://github.com/kmusolff/"
+  }
+}
