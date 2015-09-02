@@ -1,7 +1,7 @@
 var app = angular.module('chatApp', ['ngRoute']);
 
 var ath;
-var socket = io();
+//var socket = io();
 
 app.controller('ChatCtrl', ['$scope', '$http', '$timeout', '$location', function($scope, $http, $timeout, $location){
 	if(!ath){
@@ -14,7 +14,7 @@ app.controller('ChatCtrl', ['$scope', '$http', '$timeout', '$location', function
 		if(msg){
 			var d = new Date();
 			//$scope.chatItems.push({author: ath.getName(), text: msg, date: d.getTime()});
-			socket.emit('chat message', {author: ath.getName(), text: msg, date: d.getTime()});
+			//socket.emit('chat message', {author: ath.getName(), text: msg, date: d.getTime()});
 			$scope.message = '';
 		}
 
@@ -24,11 +24,11 @@ app.controller('ChatCtrl', ['$scope', '$http', '$timeout', '$location', function
 		$event.keyCode === 13 ? $scope.send() : 0;
 	};
 
-	socket.on('chat message', function(data){
+	/*socket.on('chat message', function(data){
 		$scope.chatItems.push(data);
 		$scope.message = '';
 		$scope.$apply();
-	});
+	});*/
 }]);
 
 app.controller('WelcomeCtrl', ['$scope', '$location', function($scope, $location){
