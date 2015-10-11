@@ -26,7 +26,7 @@ app.controller('ChatCtrl', ['$scope', '$http', '$timeout', '$location', function
 
 	socket.on('chat message', function(data){
 		$scope.chatItems.push(data);
-		$scope.message = '';
+		//$scope.message = '';
 		$scope.$apply();
 	});
 }]);
