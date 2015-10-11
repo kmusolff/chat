@@ -13,7 +13,7 @@ app.controller('ChatCtrl', ['$scope', '$http', '$timeout', '$location', function
 		var msg = $scope.message;
 		if(msg){
 			var d = new Date();
-			$scope.chatItems.push({author: ath.getName(), text: msg, date: d.getTime()});
+			///$scope.chatItems.push({author: ath.getName(), text: msg, date: d.getTime()});
 			socket.emit('chat message', {author: ath.getName(), text: msg, date: d.getTime()});
 			$scope.message = '';
 		}

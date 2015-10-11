@@ -5,8 +5,10 @@ var io = require('socket.io')(http);
 
 app.use(express.static(__dirname));
 
+app.engine('.html', require('ejs').renderFile);
+
 app.get('/', function(req, res){
-  res.sendFile(__dirname + '/index.html');
+  res.render('index.html');
 });
 
 io.on('connection', function(socket){
