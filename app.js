@@ -15,6 +15,11 @@ app.get('/', function(req, res){
   res.render('index');
 });
 
+io.configure(function () {  
+  io.set("transports", ["xhr-polling"]); 
+  io.set("polling duration", 10); 
+});
+
 io.on('connection', function(socket){
   console.log('a user connected');
 
@@ -26,7 +31,7 @@ io.on('connection', function(socket){
     console.log(data.date +  ' ' + data.author + ': ' + data.text)
     io.emit('chat message', data);
   });
-  
+
 });
 
 app.listen(app.get('port'), function() {
