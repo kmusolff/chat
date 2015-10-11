@@ -1,7 +1,8 @@
 var express = require('express');
 var app = express();
 var http = require('http').Server(app);
-var io = require('socket.io')(http);
+
+
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -15,10 +16,11 @@ app.get('/', function(req, res){
   res.render('index');
 });
 
-io.configure(function () {  
-  io.set("transports", ["xhr-polling"]); 
-  io.set("polling duration", 10); 
+var server = app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
 });
+
+var io = require('socket.io').listen(server);
 
 io.on('connection', function(socket){
   console.log('a user connected');
@@ -34,6 +36,3 @@ io.on('connection', function(socket){
 
 });
 
-app.listen(app.get('port'), function() {
-  console.log('Node app is running on port', app.get('port'));
-});
