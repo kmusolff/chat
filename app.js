@@ -15,6 +15,20 @@ app.get('/', function(req, res){
   res.render('index');
 });
 
+io.on('connection', function(socket){
+  console.log('a user connected');
+
+  socket.on('disconnect', function(){
+    console.log('user disconnected');
+  });
+
+  socket.on('chat message', function(data){
+    console.log(data.date +  ' ' + data.author + ': ' + data.text)
+    io.emit('chat message', data);
+  });
+  
+});
+
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
