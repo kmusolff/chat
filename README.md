@@ -12,5 +12,5 @@ To deploy the app, just install node dependencies using
 ```bash
 npm install
 ```
-that's it, that's why I love node <3
+And you're good to go, that's why I love node <3
 
