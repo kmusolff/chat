@@ -1,9 +1,10 @@
 <div class="container">
 		<header class="page-header">
-			<h1>Simple chat app</h1>
+			<h1>Room {{room}}</h1>
+			<h4>{{users}} connected </h4>
 		</header>
 		
-		<div ng-controller="ChatCtrl">
+		<div>
 			<section scroller>
 				
 			<chat-item ng-repeat="item in chatItems"></chat-item>

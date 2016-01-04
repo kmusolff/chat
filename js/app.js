@@ -8,13 +8,16 @@ app.controller('ChatCtrl', ['$scope', '$http', '$timeout', '$location', function
 		$location.path('/');
 	}
 	$scope.chatItems = [];
-
+	$scope.room = ath.getRoom();
 	$scope.send = function(){
 		var msg = $scope.message;
 		if(msg){
 			var d = new Date();
 			///$scope.chatItems.push({author: ath.getName(), text: msg, date: d.getTime()});
-			socket.emit('chat message', {author: ath.getName(), text: msg, date: d.getTime()});
+			socket.emit('chat message', {author: ath.getName(), 
+				text: msg, 
+				date: d.getTime(), 
+				room : ath.getRoom()});
 			$scope.message = '';
 		}
 
@@ -24,7 +27,24 @@ app.controller('ChatCtrl', ['$scope', '$http', '$timeout', '$location', function
 		$event.keyCode === 13 ? $scope.send() : 0;
 	};
 
+	$scope.users = 0;
+
+	socket.emit('sign', {name : ath.getName(), room : ath.getRoom()});
+
+	socket.on('new user', function(data){
+		console.log(data);
+		$scope.users = data.count;
+		$scope.$apply();
+	});
+
+	socket.on('user left', function(data){
+		console.log(data);
+		$scope.users = data.count;
+		$scope.$apply();
+	});
+
 	socket.on('chat message', function(data){
+		console.log(data);
 		$scope.chatItems.push(data);
 		//$scope.message = '';
 		$scope.$apply();
@@ -33,12 +53,16 @@ app.controller('ChatCtrl', ['$scope', '$http', '$timeout', '$location', function
 
 app.controller('WelcomeCtrl', ['$scope', '$location', function($scope, $location){
 	$scope.go = function(path) {
-		if($scope.username){
+		if($scope.username && $scope.room){
 			ath = (function() {
 				var name = $scope.username;
+				var room = $scope.room;
 				return {
 					getName : function(){
 						return name;
+					},
+					getRoom : function() {
+						return room;
 					}
 				};
 			})();
