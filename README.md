@@ -1,5 +1,5 @@
  # chat
- Simple chat app I made using angular.js and bootstrap, hosted on node.js server using express.js and socket.io to support real time chat. The app is hosted on Heroku Cloud Application Platform (https://www.heroku.com/) and can be found here: **https://limitless-reaches-1532.herokuapp.com/**
+ Simple chat app I made using angular.js and bootstrap, hosted on node.js server using express.js and socket.io to support real time chat. The app is hosted on Heroku Cloud Application Platform (https://www.heroku.com/) and can be found here: **musolff.herokuapp.com**
  
   # TODO
  * ~~Create node.js chat server~~ (done)
